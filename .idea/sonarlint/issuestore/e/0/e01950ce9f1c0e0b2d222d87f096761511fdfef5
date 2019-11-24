@@ -1,0 +1,24 @@
+
+squid:S00116"dRename this field "DEFAULT_NEW_NET_PARAMETER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“•Ğûÿÿÿÿ
+vsquid:S2293±"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ó½›ùÿÿÿÿ
+Tsquid:S1854½"7Remove this useless assignment to local variable "out".(¤Ûãöûÿÿÿÿ
+;squid:S1148”"#Use a logger to log this exception.(£’üÿ
+=squid:S1170"!Make this final field static too.(“•Ğûÿÿÿÿ
+Ysquid:S1068"=Remove this unused "DEFAULT_NEW_NET_PARAMETER" private field.(“•Ğûÿÿÿÿ
+?squid:S1148{"#Use a logger to log this exception.(ËÈ”™ùÿÿÿÿ
+hsquid:CommentedOutCodeLineÜ"<This block of commented-out lines of code should be removed.(¥ë¤‡şÿÿÿÿ
+vsquid:S2293˜"YReplace the type specification in this constructor call with the diamond operator ("<>").(ëÎ‚Öÿÿÿÿÿ
+osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Áª²¹øÿÿÿÿ
+vsquid:S2293½"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤Ûãöûÿÿÿÿ
+osquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ì§
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(óİÄÀúÿÿÿÿ
+csquid:S2259e"LA "NullPointerException" could be thrown; "availableTrans" is nullable here.(áÊîæ
+hsquid:S2259b"LA "NullPointerException" could be thrown; "availableTrans" is nullable here.(ì“¥Æşÿÿÿÿ
+psquid:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(¶‡Æ‡
+Xsquid:S1126f"AReplace this if-then-else statement by a single return statement.(ÑÛŠ‚
+P
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(ÎÍİ¸
+Esquid:S1481½"(Remove this unused "out" local variable.(¤Ûãöûÿÿÿÿ
+vsquid:S2293—"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨†¨üüÿÿÿÿ
+psquid:S2293!"YReplace the type specification in this constructor call with the diamond operator ("<>").(ĞÜØØ
+vsquid:S2293°"YReplace the type specification in this constructor call with the diamond operator ("<>").(½Åù­şÿÿÿÿ
