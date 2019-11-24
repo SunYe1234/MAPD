@@ -283,6 +283,15 @@ public class PetriManager implements IManager, IStarter {
 
     }
 
+    public int getTrstIdOfArc(Arc arc)
+    {
+        for (Transition transition:transitions)
+        {
+            if (transition.getInArcs().contains(arc)||transition.getOutArcs().contains(arc))
+                return transition.getId();
+        }
+        return -1;
+    }
 
 
     public static void main(String[] args) {
