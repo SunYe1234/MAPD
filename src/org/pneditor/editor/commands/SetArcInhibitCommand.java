@@ -21,92 +21,90 @@ import org.pneditor.util.Command;
 import logger.PNEditorLogger;
 
 /**
- *
  * @author Amodez
  */
 public class SetArcInhibitCommand implements Command {
 
-	private final GraphicArc gArc;
-	private AbstractArc oldArc;
-	private AbstractArc newArc;
-	private final boolean isNotInhibitory;
-	private final GraphicPetriNet gPetriNet;
-	private PetriNetInterface petriNet;
+    private final GraphicArc gArc;
+    private AbstractArc oldArc;
+    private AbstractArc newArc;
+    private final boolean isNotInhibitory;
+    private final GraphicPetriNet gPetriNet;
+    private PetriNetInterface petriNet;
 
-	public SetArcInhibitCommand(final GraphicArc gArc, final GraphicPetriNet gPetriNet) {
-		this.gArc = gArc;
-		this.oldArc = gArc.getArc();
-		this.gPetriNet = gPetriNet;
-		this.isNotInhibitory = !this.oldArc.isInhibitory();
-	}
+    public SetArcInhibitCommand(final GraphicArc gArc, final GraphicPetriNet gPetriNet) {
+        this.gArc = gArc;
+        this.oldArc = gArc.getArc();
+        this.gPetriNet = gPetriNet;
+        this.isNotInhibitory = !this.oldArc.isInhibitory();
+    }
 
-	@Override
-	public void execute() {
-		this.petriNet = this.gPetriNet.getPetriNet();
-		if (this.isNotInhibitory) {
-			this.petriNet.removeAbstractArc(this.oldArc);
-			try {
-				PetriNetAdapter adapter=PetriNetAdapter.getInstance();
-				if (this.oldArc.getSource().isPlace()) {
-					Arc arc = adapter.getArc(this.oldArc.getSource().getId());
-					ZeroArc zeroArc=new ZeroArc(arc.getWeight());
-					zeroArc.setConnectedPlace(arc.getConnectedPlace());
-					zeroArc.setIn(arc.isIn());
-					int transactionId = this.oldArc.getSource().isPlace()?this.oldArc.getDestination().getId():this.oldArc.getSource().getId();
-					adapter.replaceArc(arc, zeroArc,transactionId);
-					System.out.println("lalala");
-				}
+    @Override
+    public void execute() {
+        this.petriNet = this.gPetriNet.getPetriNet();
+        if (this.isNotInhibitory) {
+            this.petriNet.removeAbstractArc(this.oldArc);
+            try {
+                PetriNetAdapter adapter = PetriNetAdapter.getInstance();
+                if (this.oldArc.getSource().isPlace()) {
+                    Arc arc = adapter.getArc(this.oldArc.getSource().getId());
+                    ZeroArc zeroArc = new ZeroArc(arc.getWeight());
+                    zeroArc.setConnectedPlace(arc.getConnectedPlace());
+                    zeroArc.setIn(arc.isIn());
+                    int transactionId = this.oldArc.getSource().isPlace() ? this.oldArc.getDestination().getId() : this.oldArc.getSource().getId();
+                    adapter.replaceArc(arc, zeroArc, transactionId);
+                }
 
-				if (this.oldArc.isReset()) {
-					this.newArc = this.petriNet.addInhibArc((AbstractPlace) this.oldArc.getSource(),
-							(AbstractTransition) this.oldArc.getDestination());
-				}
-				if (this.oldArc.isRegular()) {
-					this.newArc = this.petriNet.addInhibArc((AbstractPlace) this.oldArc.getSource(),
-							(AbstractTransition) this.oldArc.getDestination());
-					this.newArc.setMultiplicity(this.oldArc.getMultiplicity());
-				}
-			} catch (ResetArcMultiplicityException e) {
-				// should not happen
-				PNEditorLogger.severeLogs(e.getMessage());
-			} catch (UnimplementedCaseException e) {
-				// should not happen since we're manipulating new objects, except if a behavior
-				// is not implemented
-				PNEditorLogger.warningLogs(e.getMessage());
-			}
-			this.gArc.setArc(this.newArc);
+                if (this.oldArc.isReset()) {
+                    this.newArc = this.petriNet.addInhibArc((AbstractPlace) this.oldArc.getSource(),
+                            (AbstractTransition) this.oldArc.getDestination());
+                }
+                if (this.oldArc.isRegular()) {
+                    this.newArc = this.petriNet.addInhibArc((AbstractPlace) this.oldArc.getSource(),
+                            (AbstractTransition) this.oldArc.getDestination());
+                    this.newArc.setMultiplicity(this.oldArc.getMultiplicity());
+                }
+            } catch (ResetArcMultiplicityException e) {
+                // should not happen
+                PNEditorLogger.severeLogs(e.getMessage());
+            } catch (UnimplementedCaseException e) {
+                // should not happen since we're manipulating new objects, except if a behavior
+                // is not implemented
+                PNEditorLogger.warningLogs(e.getMessage());
+            }
+            this.gArc.setArc(this.newArc);
 
-		}
+        }
 
-	}
+    }
 
-	@Override
-	public void undo() {
-		this.petriNet = this.gPetriNet.getPetriNet();
-		if (this.isNotInhibitory) {
-			this.petriNet.removeAbstractArc(gArc.getArc());
-			final AbstractNode source = gArc.getSource().getNode();
-			final AbstractNode destination = gArc.getDestination().getNode();
-			oldArc = this.petriNet.addArcAgain(this.oldArc, source, destination);
-			this.gArc.setArc(this.oldArc);
-		}
-	}
+    @Override
+    public void undo() {
+        this.petriNet = this.gPetriNet.getPetriNet();
+        if (this.isNotInhibitory) {
+            this.petriNet.removeAbstractArc(gArc.getArc());
+            final AbstractNode source = gArc.getSource().getNode();
+            final AbstractNode destination = gArc.getDestination().getNode();
+            oldArc = this.petriNet.addArcAgain(this.oldArc, source, destination);
+            this.gArc.setArc(this.oldArc);
+        }
+    }
 
-	@Override
-	public void redo() {
-		this.petriNet = this.gPetriNet.getPetriNet();
-		if (this.isNotInhibitory) {
-			this.petriNet.removeAbstractArc(gArc.getArc());
-			final AbstractNode source = gArc.getSource().getNode();
-			final AbstractNode destination = gArc.getDestination().getNode();
-			newArc = this.petriNet.addArcAgain(this.newArc, source, destination);
-			this.gArc.setArc(this.newArc);
-		}
-	}
+    @Override
+    public void redo() {
+        this.petriNet = this.gPetriNet.getPetriNet();
+        if (this.isNotInhibitory) {
+            this.petriNet.removeAbstractArc(gArc.getArc());
+            final AbstractNode source = gArc.getSource().getNode();
+            final AbstractNode destination = gArc.getDestination().getNode();
+            newArc = this.petriNet.addArcAgain(this.newArc, source, destination);
+            this.gArc.setArc(this.newArc);
+        }
+    }
 
-	@Override
-	public String toString() {
-		return "Set arc type to inhibitor arc";
-	}
+    @Override
+    public String toString() {
+        return "Set arc type to inhibitor arc";
+    }
 
 }

@@ -12,11 +12,8 @@ import org.pneditor.petrinet.model.entities.Place;
 import org.pneditor.petrinet.model.entities.Transition;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class PetriNetAdapter implements IManagerAdapt {
 
@@ -73,7 +70,9 @@ public class PetriNetAdapter implements IManagerAdapt {
 
     public Arc getArc(AbstractArc arc) {
         for (Arc arcPetri : petriManager.getArcs()) {
-            if (arcPetri.getConnectedPlace().getId() == arc.getSource().getId() || arcPetri.getConnectedPlace().getId() == arc.getDestination().getId()) {
+            if (arcPetri.getConnectedPlace() == null) {
+                return null;
+            } else if (arcPetri.getConnectedPlace().getId() == arc.getSource().getId() || arcPetri.getConnectedPlace().getId() == arc.getDestination().getId()) {
                 return arcPetri;
             }
         }
@@ -190,8 +189,6 @@ public class PetriNetAdapter implements IManagerAdapt {
             for (GraphicElement graphicArc : graphicPetriNet.getElements()) {
                 if (graphicArc instanceof GraphicArc) {
                     if (((GraphicArc) graphicArc).getSource().isPlace()) {
-                        int modelPlaceId = arc.getConnectedPlace().getId();
-                        int grapicPlaceId = ((GraphicPlace) ((((GraphicArc) graphicArc).getSource()))).getPlace().getId();
                         if (((GraphicPlace) ((((GraphicArc) graphicArc).getSource()))).getPlace().getId() == arc.getConnectedPlace().getId()) {
                             deleted = false;
                             break;
@@ -266,29 +263,54 @@ public class PetriNetAdapter implements IManagerAdapt {
         return petriManager.getPlaces();
     }
 
-    public boolean comparePetri(GraphicPetriNet editorNet) {
+    public boolean comparePetri(GraphicPetriNet editorNet) throws ResetArcMultiplicityException {
         if (editorNet.getPetriNet().getPlaces().size() != this.getPlaces().size()) {
-            return false;
+            comparePlaces(editorNet).forEach(missingPlace -> addPlace(missingPlace));
+            compareArcs(editorNet).forEach(missingArc -> addArc(missingArc));
+            compareTransitions(editorNet).forEach(missingTransition -> addTransition(missingTransition));
+            return comparePetri(editorNet);
+        } else {
+            if (comparePlaces(editorNet).isEmpty() && compareTransitions(editorNet).isEmpty() && compareArcs(editorNet).isEmpty()) {
+                return true;
+            }
         }
-        return compareTransitions(editorNet) && compareArcs(editorNet) && comparePlaces(editorNet);
+        return comparePetri(editorNet);
     }
 
-    private boolean comparePlaces(GraphicPetriNet editorNet) {
-        List<Place> editorPlaces = editorNet.getPlaces().stream().map(place -> getPlace(place.getPlace())).collect(Collectors.toList());
-        List<Place> differentPlaces = petriManager.getPlaces().stream().distinct().filter(place -> !editorPlaces.contains(place)).collect(Collectors.toList());
-        return differentPlaces.isEmpty();
+    private List<Place> comparePlaces(GraphicPetriNet editorNet) {
+        List<Place> editorPlaces = new ArrayList<>();
+        for (GraphicPlace editorPlace : editorNet.getPlaces()) {
+            if (getPlace(editorPlace.getPlace()) == null)
+                createPlace(editorPlace.getPlace());
+            editorPlaces.add(getPlace(editorPlace.getPlace()));
+        }
+        List<Place> differentPlaces = new ArrayList<>(petriManager.getPlaces());
+        differentPlaces.removeAll(editorPlaces);
+        return differentPlaces;
     }
 
-    private boolean compareTransitions(GraphicPetriNet editorNet) {
-        List<Transition> editorTransitions = new ArrayList<>(editorNet.getPetriNet().getTransitions().stream().map(transition -> getTransition(transition)).collect(Collectors.toList()));
-        List<Transition> differentTransitions = this.getTransitions().stream().distinct().filter(transition -> !editorTransitions.contains(transition)).collect(Collectors.toList());
-        return differentTransitions.isEmpty();
+    private List<Transition> compareTransitions(GraphicPetriNet editorNet) {
+        List<Transition> editorTransitions = new ArrayList<>();
+        for (AbstractTransition editorTransition : editorNet.getPetriNet().getTransitions()) {
+            if (getTransition(editorTransition) == null)
+                createTransition(editorTransition);
+            editorTransitions.add(getTransition(editorTransition));
+        }
+        List<Transition> differentTransitions = new ArrayList<>(petriManager.getTransitions());
+        differentTransitions.removeAll(editorTransitions);
+        return differentTransitions;
     }
 
-    private boolean compareArcs(GraphicPetriNet editorNet) {
-        List<Arc> editorArcs = new ArrayList<>(editorNet.getArcs().stream().map(arc->getArc(arc.getArc())).collect(Collectors.toList()));
-        List<Arc> differentArcs = petriManager.getArcs().stream().distinct().filter(arc->!editorArcs.contains(arc)).collect(Collectors.toList());
-        return differentArcs.isEmpty();
+    private List<Arc> compareArcs(GraphicPetriNet editorNet) throws ResetArcMultiplicityException {
+        List<Arc> editorArcs = new ArrayList<>();
+        for (GraphicArc editorArc : editorNet.getArcs()) {
+            if (getArc(editorArc.getArc()) == null)
+                createArc(editorArc.getArc());
+            editorArcs.add(getArc(editorArc.getArc()));
+        }
+        List<Arc> differentArcs = new ArrayList<>(petriManager.getArcs());
+        differentArcs.removeAll(editorArcs);
+        return differentArcs;
     }
 
     public void createPlace(AbstractPlace editorPlace) {
