@@ -48,9 +48,5 @@ public class Place {
 		if (quantite>this.tokens)
 			throw new ExceptionDeleteTokens("Trying to delete more tokens than the palce actually has");
 		this.tokens-=quantite;
-
-		
 	}
-
-
 }

@@ -49,9 +49,7 @@ public class AddPlaceCommand implements Command {
     	this.gPetriNet.addElement(this.representation);
     	counter++;
 		PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
-    	Place place= new Place(this.createdPlace.getTokens());
-    	place.setId(this.createdPlace.getId());
-		petriNetAdapter.addPlace(place);
+		petriNetAdapter.createPlace(this.createdPlace);
     }
 
     @Override

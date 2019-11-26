@@ -24,7 +24,6 @@ import org.pneditor.editor.gpetrinet.GraphicPlace;
 import org.pneditor.editor.gpetrinet.GraphicTransition;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.adapters.pneAdaptor.PetriNetAdapter;
-import org.pneditor.petrinet.model.entities.Place;
 import org.pneditor.util.Command;
 
 import logger.PNEditorLogger;
@@ -47,10 +46,10 @@ public class FireTransitionCommand implements Command {
 	@Override
 	public void execute() {
 		PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
+		petriNetAdapter.comparePetri(this.gPetriNet); //todo: evaluate if false
 		petriNetAdapter.checkIfDeleted(this.gPetriNet);
 		for (final GraphicPlace place : this.gPetriNet.getPlaces()) {
 			this.firedPlaces.put(place, place.getPlace().getTokens());
-
 		}
 		try {
 			petriNetAdapter.setSelectedTransition(this.transition.getTransition().getId());

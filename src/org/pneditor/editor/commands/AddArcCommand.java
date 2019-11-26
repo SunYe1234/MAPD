@@ -31,11 +31,11 @@ import logger.PNEditorLogger;
  */
 public class AddArcCommand implements Command {
 
+    private AbstractArc createdArc;
+    private GraphicArc representation;
     final private GraphicPetriNet gPetriNet;
     final private GraphicNode source;
     final private GraphicNode destination;
-    private AbstractArc createdArc;
-    private GraphicArc representation;
 
     public AddArcCommand(final GraphicPetriNet gPetriNet, final GraphicNode source, final GraphicNode destination) {
         this.gPetriNet = gPetriNet;
@@ -57,25 +57,12 @@ public class AddArcCommand implements Command {
             this.representation.setSource(this.source);
             this.representation.setDestination(this.destination);
             this.gPetriNet.addElement(this.representation);
-        }
-
-        try {
             PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
-            Arc arc = new Arc(this.createdArc.getMultiplicity());
-            if (this.representation.getSource().isPlace()) {
-                arc.setConnectedPlace(petriNetAdapter.getPlace(this.representation.getArc().getSource().getId()));
-                arc.setIn(false);
-                petriNetAdapter.getTransition(((GraphicTransition) this.representation.getDestination()).getTransition().getId()).addInArc(arc);
-            } else {
-                arc.setConnectedPlace(petriNetAdapter.getPlace(this.representation.getArc().getDestination().getId()));
-                arc.setIn(true);
-                petriNetAdapter.getTransition(((GraphicTransition) this.representation.getSource()).getTransition().getId()).addOutArc(arc);
+            try {
+                petriNetAdapter.createArc(this.createdArc);
+            } catch (ResetArcMultiplicityException e) {
+                e.printStackTrace();
             }
-            petriNetAdapter.addArc(arc);
-            System.out.println("/hi ye");
-        } catch (ResetArcMultiplicityException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 

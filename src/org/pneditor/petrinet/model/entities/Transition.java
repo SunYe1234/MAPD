@@ -93,7 +93,6 @@ public class Transition {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Transition that = (Transition) o;
         return available == that.available &&
                 id == that.id &&

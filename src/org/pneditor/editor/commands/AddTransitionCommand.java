@@ -47,9 +47,7 @@ public class AddTransitionCommand implements Command {
     	this.gPetriNet.addElement(this.representation);
     	
 		PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
-		Transition transition=new Transition();
-		transition.setId(this.createdTransition.getId());
-		petriNetAdapter.addTransition(transition);
+		petriNetAdapter.createTransition(this.createdTransition);
     }
 
     @Override
