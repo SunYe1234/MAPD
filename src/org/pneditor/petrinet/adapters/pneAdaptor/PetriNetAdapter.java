@@ -14,7 +14,13 @@ import org.pneditor.petrinet.model.entities.Transition;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
+/**
+ * Adapter Class which adapt the PetriManager to the need of the graphic interface.
+ * It contains mainly add/delete elements in the model, get elements which has the same id with the graphic elements,
+ * detects whether some elements of the graphic PetriNet have been deleted since the last time the user fired a transition
+ * and keep the model PetriNet same with it,
+ * and detects whether something has been added to the graphic PetriNet since the last time the user fired a transition.
+ */
 public class PetriNetAdapter implements IManagerAdapt {
 
     private PetriManager petriManager = PetriManager.getInstance();
@@ -24,32 +30,52 @@ public class PetriNetAdapter implements IManagerAdapt {
     private PetriNetAdapter() {
         super();
     }
-
+    /**
+     * Return the PetriNetAdapter instance using singleton pattern
+     * @return
+     */
     public static PetriNetAdapter getInstance() {
         if (petriNetAdapter == null)
             petriNetAdapter = new PetriNetAdapter();
         return petriNetAdapter;
     }
 
-
+    /**
+     * add a new place to the place list in the model
+     * @param place
+     */
     @Override
     public void addPlace(Place place) {
         petriManager.addPlace(place);
 
     }
 
+    /**
+     * add a new transition to the transition list in the model
+     * @param transition
+     */
     @Override
     public void addTransition(Transition transition) {
         petriManager.addTransition(transition);
 
     }
 
+    /**
+     * add a new arc to the arc list in the model
+     * @param arc
+     */
     @Override
     public void addArc(Arc arc) {
         petriManager.addArc(arc);
 
     }
 
+
+    /**
+     * Given a graphic place, find the corresponding model place which has the same id
+     * @param place AbstractPlace
+     * @return
+     */
     public Place getPlace(AbstractPlace place) {
         for (Place p : petriManager.getPlaces()) {
             if (p.getId() == place.getId())
@@ -59,6 +85,11 @@ public class PetriNetAdapter implements IManagerAdapt {
 
     }
 
+    /**
+     * Given a place id, return the corresponding model place which has the same id
+     * @param id
+     * @return
+     */
     public Transition getTransition(AbstractTransition transition) {
         for (Transition t : petriManager.getTransitions()) {
             if (t.getId() == transition.getId()) {
@@ -88,7 +119,12 @@ public class PetriNetAdapter implements IManagerAdapt {
 
     }
 
-
+    /**
+     * Given a transition id, return the corresponding model transition
+     * which has the same id
+     * @param id
+     * @return
+     */
     public Transition getTransition(int id) {
         for (Transition p : petriManager.getTransitions()) {
             if (p.getId() == id)
@@ -98,6 +134,11 @@ public class PetriNetAdapter implements IManagerAdapt {
 
     }
 
+    /**
+     * Given a transition id, set the corresponding transition
+     * as the selected transition in the model
+     * @param id
+     */
     public void setSelectedTransition(int id) {
         for (Transition p : petriManager.getTransitions()) {
             if (p.getId() == id)
@@ -116,6 +157,12 @@ public class PetriNetAdapter implements IManagerAdapt {
         }
     }
 
+    /**
+     * Get the connected arc of a given place
+     *
+     * @param placeId
+     * @return
+     */
     public Arc getArc(int placeId) {
         for (Transition t : petriManager.getTransitions()) {
             for (Arc a : t.getInArcs()) {
@@ -128,6 +175,15 @@ public class PetriNetAdapter implements IManagerAdapt {
         return null;
     }
 
+
+    /**
+     * When we change the arc type, replace the old arc with a new zero arc or vider arc of same weight,
+     * and replace the arc in the inarcs/outarcs of the connected transition.
+     *
+     * @param oldArc
+     * @param newArc
+     * @param transitionId
+     */
     public void replaceArc(Arc oldArc, Arc newArc, int transitionId) {
         this.petriManager.getArcs().remove(oldArc);
         this.petriManager.getArcs().add(newArc);
@@ -136,7 +192,12 @@ public class PetriNetAdapter implements IManagerAdapt {
         else
             this.getTransition(transitionId).replaceInArc(oldArc, newArc);
     }
-
+    /**
+     * check if the transition with a certain id is available or not
+     *
+     * @param id the id of transition
+     * @return
+     */
     public boolean hasAvailableTrans(int id) {
         for (Transition p : petriManager.getTransitions()) {
             if (p.getId() == id)
@@ -145,29 +206,42 @@ public class PetriNetAdapter implements IManagerAdapt {
         return false;
     }
 
+    /**
+     * Check if user has deleted the elements of the network, and keep the model same with the graphic network
+     *
+     * @param graphicPetriNet
+     */
     public void checkIfDeleted(GraphicPetriNet graphicPetriNet) {
+        //whether user has deleted places
         Iterator<Place> itPlace = this.petriManager.getPlaces().iterator();
         while (itPlace.hasNext()) {
             Place p = itPlace.next();
             boolean deleted = true;
             for (GraphicPlace graphicPlace : graphicPetriNet.getPlaces()) {
+                //if found one graphicPlace with corresponding id of current place,
+                //then it's not deleted
                 if (p.getId() == graphicPlace.getPlace().getId()) { //todo: replace for the getPLace(AbstractPlace):Place
                     deleted = false;
                     break;
                 }
             }
+            //otherwise, remove this place from the place list and remove all of the arcs connected to it,
+            //update the transition connected to these arcs too.
+
             if (deleted) {
                 itPlace.remove();
                 deleteArcsOfPlace(p);
 
             }
         }
-
+        //Whether user has deleted transitions
         Iterator<Transition> itTransition = this.petriManager.getTransitions().iterator();
         while (itTransition.hasNext()) {
             Transition t = itTransition.next();
             boolean deleted = true;
             for (GraphicElement graphicTransition : graphicPetriNet.getElements()) {
+                //if found one graphicPlace with corresponding id of current transition,
+                //then it's not deleted
                 if (graphicTransition instanceof GraphicTransition) {
                     if (t.getId() == ((GraphicTransition) graphicTransition).getTransition().getId()) {
                         deleted = false;
@@ -175,28 +249,38 @@ public class PetriNetAdapter implements IManagerAdapt {
                     }
                 }
             }
+            //otherwise, remove this transition from the transition list and remove all of the arcs connected to it,
+            //don't need to change places because it doesn't save the connected arc information
             if (deleted) {
                 itTransition.remove();
                 deleteArcsOfTransition(t);
 
             }
         }
-
+        //Whether user has deleted arcs
         Iterator<Arc> itArc = this.petriManager.getArcs().iterator();
         while (itArc.hasNext()) {
             Arc arc = itArc.next();
             boolean deleted = true;
+            //for every graphic arc exists
             for (GraphicElement graphicArc : graphicPetriNet.getElements()) {
                 if (graphicArc instanceof GraphicArc) {
+                    //if this graphic arc has a place source
+                    //and this graphic is connected to the same place like the model arc,
+                    //then it's not deleted
                     if (((GraphicArc) graphicArc).getSource().isPlace()) {
                         if (((GraphicPlace) ((((GraphicArc) graphicArc).getSource()))).getPlace().getId() == arc.getConnectedPlace().getId()) {
                             deleted = false;
                             break;
                         }
                     }
+                    //if this graphic arc has a transition source
                     if (((GraphicArc) graphicArc).getSource().isTransition() && arc.isIn()) {
                         int modelPlaceId = arc.getConnectedPlace().getId();
                         int grapicPlaceId = ((GraphicPlace) ((((GraphicArc) graphicArc).getDestination()))).getPlace().getId();
+                        //if the graphic arc and the model arc are connected to the same place,
+                        //then it's not deleted
+
                         if (modelPlaceId == grapicPlaceId) {
                             deleted = false;
                             break;
@@ -204,6 +288,8 @@ public class PetriNetAdapter implements IManagerAdapt {
                     }
                 }
             }
+            //otherwise, remove this arc from the list, and update the connected model transition
+            // because only model transition save the arc information
             if (deleted) {
                 itArc.remove();
                 updatedConnectedTranst(arc);
@@ -213,13 +299,21 @@ public class PetriNetAdapter implements IManagerAdapt {
 
     }
 
-    //delete the arc connected to the p and update the transition connected to this arc
+    /**
+     * delete the arc connected to the p and update the transition connected to this arc
+     *
+     * @param p the removed place
+     */
     private void deleteArcsOfPlace(Place p) {
         Iterator<Arc> iteratorArc = petriManager.getArcs().iterator();
         while (iteratorArc.hasNext()) {
             Arc arc = iteratorArc.next();
+            //if this arc is connected to the removed place
             if (arc.getConnectedPlace().getId() == p.getId()) {
+                //remove it
                 iteratorArc.remove();
+                //find the transition which is connected to this arc,
+                //and update its inArcs and outArcs
                 for (Transition transition : petriManager.getTransitions()) {
                     if (transition.getInArcs().contains(arc)) {
                         transition.getInArcs().remove(arc);
@@ -233,7 +327,11 @@ public class PetriNetAdapter implements IManagerAdapt {
             }
         }
     }
-
+    /**
+     * Delete the connected arcs of a transition from the arc list. This method is called after a transition is deleted.
+     *
+     * @param transition
+     */
     private void deleteArcsOfTransition(Transition transition) {
         for (Arc arc : transition.getInArcs()) {
             petriManager.getArcs().remove(arc);
@@ -243,7 +341,12 @@ public class PetriNetAdapter implements IManagerAdapt {
         }
 
     }
-
+    /**
+     * Delete the arc from the inArcs/outArcs list of the connected transition.
+     * This method is called after an arc is deleted.
+     *
+     * @param arc
+     */
     private void updatedConnectedTranst(Arc arc) {
         for (Transition transition : petriManager.getTransitions()) {
             if (transition.getInArcs().contains(arc))
@@ -254,7 +357,11 @@ public class PetriNetAdapter implements IManagerAdapt {
 
     }
 
-
+    /**
+     * get all of the transitions in the model in a list
+     *
+     * @return
+     */
     public List<Transition> getTransitions() {
         return petriManager.getTransitions();
     }
