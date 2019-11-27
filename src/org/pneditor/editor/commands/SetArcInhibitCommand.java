@@ -45,6 +45,7 @@ public class SetArcInhibitCommand implements Command {
         if (this.isNotInhibitory) {
             this.petriNet.removeAbstractArc(this.oldArc);
             try {
+                //Adapter added to create zeroArc on the model
                 PetriNetAdapter adapter = PetriNetAdapter.getInstance();
                 if (this.oldArc.getSource().isPlace()) {
                     Arc arc = adapter.getArc(this.oldArc.getSource().getId());

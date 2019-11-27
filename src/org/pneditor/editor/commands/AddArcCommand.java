@@ -21,7 +21,6 @@ import org.pneditor.petrinet.AbstractArc;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.UnimplementedCaseException;
 import org.pneditor.petrinet.adapters.pneAdaptor.PetriNetAdapter;
-import org.pneditor.petrinet.model.entities.Arc;
 import org.pneditor.util.Command;
 
 import logger.PNEditorLogger;
@@ -58,10 +57,11 @@ public class AddArcCommand implements Command {
             this.representation.setDestination(this.destination);
             this.gPetriNet.addElement(this.representation);
             PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
+            // PetriNet adapter added to create pne-editor model arc on the petriNet
             try {
                 petriNetAdapter.createArc(this.createdArc);
             } catch (ResetArcMultiplicityException e) {
-                e.printStackTrace();
+                PNEditorLogger.severeLogs(e.getMessage());
             }
         }
     }
