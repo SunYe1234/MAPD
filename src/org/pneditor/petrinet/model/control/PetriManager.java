@@ -213,7 +213,6 @@ public class PetriManager implements IManager, IStarter {
     }
 
     public void addAvailableTransition(Transition transition) {
-        System.out.println("##################   add available trans");
         this.availableTrans.add(transition);
 
     }
@@ -233,8 +232,6 @@ public class PetriManager implements IManager, IStarter {
         this.places.add(place);
     }
 
-//    public Transition getTransition(Transition transition) {
-//	}
     
     @Override
     public void changeWeight(Arc arc, int weight) {
@@ -281,16 +278,6 @@ public class PetriManager implements IManager, IStarter {
                 this.selectedTrans = this.availableTrans.get(lastSelectedId);
         }
 
-    }
-
-    public int getTrstIdOfArc(Arc arc)
-    {
-        for (Transition transition:transitions)
-        {
-            if (transition.getInArcs().contains(arc)||transition.getOutArcs().contains(arc))
-                return transition.getId();
-        }
-        return -1;
     }
 
 

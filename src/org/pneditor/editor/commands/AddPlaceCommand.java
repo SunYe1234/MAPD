@@ -48,6 +48,7 @@ public class AddPlaceCommand implements Command {
     	this.representation = new GraphicPlace(this.createdPlace, this.x, this.y);
     	this.gPetriNet.addElement(this.representation);
     	counter++;
+    	// Adapter added to create a place in the model
 		PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
 		petriNetAdapter.createPlace(this.createdPlace);
     }

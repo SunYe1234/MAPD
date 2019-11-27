@@ -44,12 +44,15 @@ public class FireTransitionCommand implements Command {
 
     @Override
     public void execute() {
+        // PetriNet adapter added to retrieve the model and check it an element has been deleted
         PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
         petriNetAdapter.checkIfDeleted(this.gPetriNet);
         for (final GraphicPlace place : this.gPetriNet.getPlaces()) {
             this.firedPlaces.put(place, place.getPlace().getTokens());
         }
         try {
+            // PetriNet adapter added to fire the transition on the model.
+            // It first selects the transition to be fired and then upgrades the net
             petriNetAdapter.setSelectedTransition(this.transition.getTransition().getId());
             petriNetAdapter.upgradePetri();
             this.gPetriNet.getPetriNet().fire(this.transition.getTransition());

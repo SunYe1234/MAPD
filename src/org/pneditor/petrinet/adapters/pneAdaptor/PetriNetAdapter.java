@@ -11,15 +11,14 @@ import org.pneditor.petrinet.model.entities.Arc;
 import org.pneditor.petrinet.model.entities.Place;
 import org.pneditor.petrinet.model.entities.Transition;
 
-import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
 /**
  * Adapter Class which adapt the PetriManager to the need of the graphic interface.
  * It contains mainly add/delete elements in the model, get elements which has the same id with the graphic elements,
  * detects whether some elements of the graphic PetriNet have been deleted since the last time the user fired a transition
- * and keep the model PetriNet same with it,
- * and detects whether something has been added to the graphic PetriNet since the last time the user fired a transition.
+ * and keep the model PetriNet same with it.
  */
 public class PetriNetAdapter implements IManagerAdapt {
 
@@ -30,6 +29,7 @@ public class PetriNetAdapter implements IManagerAdapt {
     private PetriNetAdapter() {
         super();
     }
+
     /**
      * Return the PetriNetAdapter instance using singleton pattern
      * @return
@@ -86,8 +86,8 @@ public class PetriNetAdapter implements IManagerAdapt {
     }
 
     /**
-     * Given a place id, return the corresponding model place which has the same id
-     * @param id
+     * Given an abstract transition, return the corresponding model place which has the same id
+     * @param transition
      * @return
      */
     public Transition getTransition(AbstractTransition transition) {
@@ -99,6 +99,11 @@ public class PetriNetAdapter implements IManagerAdapt {
         return null;
     }
 
+    /**
+     * Given an abstract arc, return the mapped arc in petriNet model
+     * @param arc
+     * @return
+     */
     public Arc getArc(AbstractArc arc) {
         for (Arc arcPetri : petriManager.getArcs()) {
             if (arcPetri.getConnectedPlace() == null) {
@@ -146,6 +151,9 @@ public class PetriNetAdapter implements IManagerAdapt {
         }
     }
 
+    /**
+     * Method used to connect with the logic involved in the firing process
+     */
     public void upgradePetri() {
         this.petriManager.upgradePetri();
     }
@@ -220,7 +228,7 @@ public class PetriNetAdapter implements IManagerAdapt {
             for (GraphicPlace graphicPlace : graphicPetriNet.getPlaces()) {
                 //if found one graphicPlace with corresponding id of current place,
                 //then it's not deleted
-                if (p.getId() == graphicPlace.getPlace().getId()) { //todo: replace for the getPLace(AbstractPlace):Place
+                if (p.getId() == graphicPlace.getPlace().getId()) {
                     deleted = false;
                     break;
                 }
@@ -269,7 +277,7 @@ public class PetriNetAdapter implements IManagerAdapt {
                     //and this graphic is connected to the same place like the model arc,
                     //then it's not deleted
                     if (((GraphicArc) graphicArc).getSource().isPlace()) {
-                        if (((GraphicPlace) ((((GraphicArc) graphicArc).getSource()))).getPlace().getId() == arc.getConnectedPlace().getId()) {
+                        if (((GraphicPlace) (((GraphicArc) graphicArc).getSource())).getPlace().getId() == arc.getConnectedPlace().getId()) {
                             deleted = false;
                             break;
                         }
@@ -277,7 +285,7 @@ public class PetriNetAdapter implements IManagerAdapt {
                     //if this graphic arc has a transition source
                     if (((GraphicArc) graphicArc).getSource().isTransition() && arc.isIn()) {
                         int modelPlaceId = arc.getConnectedPlace().getId();
-                        int grapicPlaceId = ((GraphicPlace) ((((GraphicArc) graphicArc).getDestination()))).getPlace().getId();
+                        int grapicPlaceId = ((GraphicPlace) (((GraphicArc) graphicArc).getDestination())).getPlace().getId();
                         //if the graphic arc and the model arc are connected to the same place,
                         //then it's not deleted
 
@@ -366,72 +374,34 @@ public class PetriNetAdapter implements IManagerAdapt {
         return petriManager.getTransitions();
     }
 
-    public List<Place> getPlaces() {
-        return petriManager.getPlaces();
-    }
-
-    public boolean comparePetri(GraphicPetriNet editorNet) throws ResetArcMultiplicityException {
-        if (editorNet.getPetriNet().getPlaces().size() != this.getPlaces().size()) {
-            comparePlaces(editorNet).forEach(missingPlace -> addPlace(missingPlace));
-            compareArcs(editorNet).forEach(missingArc -> addArc(missingArc));
-            compareTransitions(editorNet).forEach(missingTransition -> addTransition(missingTransition));
-            return comparePetri(editorNet);
-        } else {
-            if (comparePlaces(editorNet).isEmpty() && compareTransitions(editorNet).isEmpty() && compareArcs(editorNet).isEmpty()) {
-                return true;
-            }
-        }
-        return comparePetri(editorNet);
-    }
-
-    private List<Place> comparePlaces(GraphicPetriNet editorNet) {
-        List<Place> editorPlaces = new ArrayList<>();
-        for (GraphicPlace editorPlace : editorNet.getPlaces()) {
-            if (getPlace(editorPlace.getPlace()) == null)
-                createPlace(editorPlace.getPlace());
-            editorPlaces.add(getPlace(editorPlace.getPlace()));
-        }
-        List<Place> differentPlaces = new ArrayList<>(petriManager.getPlaces());
-        differentPlaces.removeAll(editorPlaces);
-        return differentPlaces;
-    }
-
-    private List<Transition> compareTransitions(GraphicPetriNet editorNet) {
-        List<Transition> editorTransitions = new ArrayList<>();
-        for (AbstractTransition editorTransition : editorNet.getPetriNet().getTransitions()) {
-            if (getTransition(editorTransition) == null)
-                createTransition(editorTransition);
-            editorTransitions.add(getTransition(editorTransition));
-        }
-        List<Transition> differentTransitions = new ArrayList<>(petriManager.getTransitions());
-        differentTransitions.removeAll(editorTransitions);
-        return differentTransitions;
-    }
-
-    private List<Arc> compareArcs(GraphicPetriNet editorNet) throws ResetArcMultiplicityException {
-        List<Arc> editorArcs = new ArrayList<>();
-        for (GraphicArc editorArc : editorNet.getArcs()) {
-            if (getArc(editorArc.getArc()) == null)
-                createArc(editorArc.getArc());
-            editorArcs.add(getArc(editorArc.getArc()));
-        }
-        List<Arc> differentArcs = new ArrayList<>(petriManager.getArcs());
-        differentArcs.removeAll(editorArcs);
-        return differentArcs;
-    }
-
+    /**
+     *  Method to create a place in the petriNet. Its purpose is to map the AbstractPlace
+     *  model of the pne-editor project to the place of the petriNet model
+     * @param editorPlace
+     */
     public void createPlace(AbstractPlace editorPlace) {
         Place place = new Place(editorPlace.getTokens());
         place.setId(editorPlace.getId());
         this.addPlace(place);
     }
 
+    /**
+     * Method to create a transition in the petriNet. Its purpose is to map the AbstractPlace
+     * model of the pne-editor project to the transition of the petriNet model
+     * @param editorTransition
+     */
     public void createTransition(AbstractTransition editorTransition) {
         Transition transition = new Transition();
         transition.setId(editorTransition.getId());
         this.addTransition(transition);
     }
 
+    /**
+     * Method used to create an arc in the PetriNet. As arcs are attached only to a place in
+     * the petriNet model first the place must be found. Used to map arcs between models
+     * @param editorArc
+     * @throws ResetArcMultiplicityException
+     */
     public void createArc(AbstractArc editorArc) throws ResetArcMultiplicityException {
         Arc arc = new Arc(editorArc.getMultiplicity());
         if (editorArc.getSource().isPlace()) {

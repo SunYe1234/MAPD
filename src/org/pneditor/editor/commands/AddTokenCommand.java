@@ -38,6 +38,7 @@ public class AddTokenCommand implements Command {
 	public void execute() {
     	this.place = this.gPlace.getPlace();
     	this.place.addToken();
+    	// PetriNet adapter added to add tokens to a created place on the model
         PetriNetAdapter petriNetAdapter = PetriNetAdapter.getInstance();
         petriNetAdapter.getPlace(this.place.getId()).setTokens(this.place.getTokens());
     }
