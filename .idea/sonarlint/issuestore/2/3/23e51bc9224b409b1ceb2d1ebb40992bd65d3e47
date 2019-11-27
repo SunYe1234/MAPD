@@ -1,27 +1,0 @@
-
-]squid:S00112-"FDefine and throw a dedicated exception instead of using a generic one.(ø°;
-^squid:S001125"FDefine and throw a dedicated exception instead of using a generic one.(‡áã×
-^squid:S00112="FDefine and throw a dedicated exception instead of using a generic one.(ƒÕ“É
-]squid:S00112E"FDefine and throw a dedicated exception instead of using a generic one.(Ş¸«!
-csquid:S00112e"FDefine and throw a dedicated exception instead of using a generic one.(¥Ï·áùÿÿÿÿ
-squid:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•¨ó­úÿÿÿÿ
-œ%squid:RedundantThrowsDeclarationCheck-"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ø°;
-Rsquid:S2696."6Make the enclosing method "static" or remove this set.(«Á€–úÿÿÿÿ
-Rsquid:S2696/"6Make the enclosing method "static" or remove this set.(® ˜§øÿÿÿÿ
-Msquid:S26960"6Make the enclosing method "static" or remove this set.(ÒÖ’€
-Msquid:S26961"6Make the enclosing method "static" or remove this set.(®Ş¾
-%squid:RedundantThrowsDeclarationCheck5"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(‡áã×
-Msquid:S26969"6Make the enclosing method "static" or remove this set.(ò¥‰Ê
-%squid:RedundantThrowsDeclarationCheck="lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ƒÕ“É
-Msquid:S2696A"6Make the enclosing method "static" or remove this set.(ï ò÷
-œ%squid:RedundantThrowsDeclarationCheckE"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(Ş¸«!
-Rsquid:S2696F"6Make the enclosing method "static" or remove this set.(Õ‡ìşÿÿÿÿ
-Msquid:S2696G"6Make the enclosing method "static" or remove this set.(ØîØÅ
-Rsquid:S2696M"6Make the enclosing method "static" or remove this set.(«Á€–úÿÿÿÿ
-Lsquid:S2696T"6Make the enclosing method "static" or remove this set.(şµ–b
-Rsquid:S2696_"6Make the enclosing method "static" or remove this set.(¸€çıÿÿÿÿ
-¢%squid:RedundantThrowsDeclarationChecke"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¥Ï·áùÿÿÿÿ
-Rsquid:S2696i"6Make the enclosing method "static" or remove this set.(¸€çıÿÿÿÿ
-Msquid:S2696o"6Make the enclosing method "static" or remove this set.(ğ®…ø
-Msquid:S2696s"6Make the enclosing method "static" or remove this set.(”ÍÌÃ
-Msquid:S2696v"6Make the enclosing method "static" or remove this set.(†«‰Î

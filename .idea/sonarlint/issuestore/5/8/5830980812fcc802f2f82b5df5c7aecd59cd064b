@@ -1,16 +1,0 @@
-
-™squid:S1186ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(×Ğ«Ğ
-Dsquid:S1481 ",Remove this unused "element" local variable.(´¥•¶
-™squid:S1186ø"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¨˜ÀÏ
-Ssquid:S1854 ";Remove this useless assignment to local variable "element".(´¥•¶
-=squid:S19481"&Make "root" transient or serializable.(‚‡ôÔ
-‡"squid:ClassVariableVisibilityCheck0"TMake features a static final constant or non-public and provide accessors if needed.(Ö¹ºÿÿÿÿÿ
-Lsquid:S1948-"5Make "highlightedElements" transient or serializable.(–¢ê
-™squid:S1186ü"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾Ôè¡
-\squid:S2583è"DChange this condition so that it does not always evaluate to "false"(àş¼
-usquid:UselessImportCheck!"ERemove this unused import 'org.pneditor.petrinet.model.entities.Arc'.(î¦¼õıÿÿÿÿ8Æ‚ÅŸé-
-€squid:UselessImportCheck "URemove this unused import 'org.pneditor.petrinet.adapters.pneAdaptor.ManagerAdaptor'.(÷›Ğ°8§šÅŸé-
-Fsquid:S19480"*Make "features" transient or serializable.(Ö¹ºÿÿÿÿÿ
-Isquid:S19482"2Make "scrollingFeature" transient or serializable.(®†’²
-†"squid:ClassVariableVisibilityCheck/"XMake activeCursor a static final constant or non-public and provide accessors if needed.(ï²ŠÔ
-wsquid:UselessImportCheck#"LRemove this unused import 'org.pneditor.petrinet.model.entities.Transition'.(ğŸàí8Æ‚ÅŸé-

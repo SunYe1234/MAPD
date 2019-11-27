@@ -1,7 +1,0 @@
-
-=squid:S1948-"&Make "root" transient or serializable.(‚‡ôÔ
-wsquid:UselessImportCheck"LRemove this unused import 'org.pneditor.editor.gpetrinet.GraphicTransition'.(„ç¤8Ð´î¡é-
-nsquid:S3776;"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(²˜œÊùÿÿÿÿ
-wsquid:UselessImportCheck "GRemove this unused import 'org.pneditor.petrinet.model.entities.Place'.(Œ¡åÊþÿÿÿÿ8üýŽ¢é-
-rsquid:UselessImportCheck"GRemove this unused import 'org.pneditor.editor.gpetrinet.GraphicPlace'.(±ÎŽÑ8ƒÚ˜¢é-
-Isquid:S1135>"2Complete the task associated to this TODO comment.(”Ð‹Ø

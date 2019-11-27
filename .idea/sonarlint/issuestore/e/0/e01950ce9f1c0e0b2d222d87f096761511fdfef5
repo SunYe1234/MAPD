@@ -1,26 +1,0 @@
-
-psquid:S2293!"YReplace the type specification in this constructor call with the diamond operator ("<>").(ĞÜØØ
-csquid:S2259e"LA "NullPointerException" could be thrown; "availableTrans" is nullable here.(áÊîæ
-osquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ì§
-=squid:S1170"!Make this final field static too.(“•Ğûÿÿÿÿ
-Tsquid:S1854½"7Remove this useless assignment to local variable "out".(¤Ûãöûÿÿÿÿ
-Esquid:S1481½"(Remove this unused "out" local variable.(¤Ûãöûÿÿÿÿ
-usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(óİÄÀúÿÿÿÿ
-Xsquid:S1126f"AReplace this if-then-else statement by a single return statement.(ÑÛŠ‚
-vsquid:S2293˜"YReplace the type specification in this constructor call with the diamond operator ("<>").(ëÎ‚Öÿÿÿÿÿ
-vsquid:S2293±"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ó½›ùÿÿÿÿ
-hsquid:S2259b"LA "NullPointerException" could be thrown; "availableTrans" is nullable here.(ì“¥Æşÿÿÿÿ
-vsquid:S2293½"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤Ûãöûÿÿÿÿ
-hsquid:CommentedOutCodeLineì"<This block of commented-out lines of code should be removed.(¥ë¤‡şÿÿÿÿ
-squid:S00116"dRename this field "DEFAULT_NEW_NET_PARAMETER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“•Ğûÿÿÿÿ
-Ysquid:S1068"=Remove this unused "DEFAULT_NEW_NET_PARAMETER" private field.(“•Ğûÿÿÿÿ
-vsquid:S2293—"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨†¨üüÿÿÿÿ
-psquid:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(¶‡Æ‡
-W
-squid:S106Ø"9Replace this use of System.out or System.err by a logger.(Ù Âÿ8¬Û¢ê-
-;squid:S1148¯"#Use a logger to log this exception.(£’üÿ
-?squid:S1148{"#Use a logger to log this exception.(ËÈ”™ùÿÿÿÿ
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Áª²¹øÿÿÿÿ
-vsquid:S2293°"YReplace the type specification in this constructor call with the diamond operator ("<>").(½Åù­şÿÿÿÿ
-P
-squid:S106¬"9Replace this use of System.out or System.err by a logger.(ÎÍİ¸

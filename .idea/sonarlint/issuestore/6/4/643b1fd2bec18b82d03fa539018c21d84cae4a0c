@@ -1,15 +1,0 @@
-
-rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ùÀ‚ç
-Ssquid:S1066¬"/Merge this if statement with the enclosing one.(Ôâé¿ùÿÿÿÿ8ÁèüÈê-
-Nsquid:S1066À"/Merge this if statement with the enclosing one.(şªÎë8ÁèüÈê-
-w
-squid:S135½"YReduce the total number of break and continue statements in this loop to use at most one.(»ê’ş8ÁèüÈê-
-w
-squid:S135ß"YReduce the total number of break and continue statements in this loop to use at most one.(ÑİºŸ8ÁèüÈê-
-Jsquid:S1612Œ",Replace this lambda with a method reference.(çê„.8ÁèüÈê-
-Psquid:S1612",Replace this lambda with a method reference.(Ÿ®Á¨ùÿÿÿÿ8ÁèüÈê-
-Ksquid:S1612",Replace this lambda with a method reference.(÷Ú™Ù8ÁèüÈê-
-vsquid:S3776”"RRefactor this method to reduce its Cognitive Complexity from 47 to the 15 allowed.(˜¯ ùùÿÿÿÿ8ÁèüÈê-
-Vsquid:S1135š"2Complete the task associated to this TODO comment.(†³°®øÿÿÿÿ8ÁèüÈê-
-Rsquid:UselessParenthesesCheckÀ"!Remove these useless parentheses.(şªÎë8ÁèüÈê-
-Rsquid:UselessParenthesesCheckÇ"!Remove these useless parentheses.(µªÈ†8ÁèüÈê-
