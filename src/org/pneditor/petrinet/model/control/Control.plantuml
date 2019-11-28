@@ -2,35 +2,46 @@
 
 title __CONTROL's Class Diagram__\n
 
-  namespace filRouge.Control {
-    class filRouge.Control.PetriManager {
-        {static} + LOGGER : Logger
-        - DEFAULT_NEW_NET_PARAMETER : int
-        - arcs : List<Arc>
-        - availableTrans : List<Transition>
-        {static} - instance : PetriManager
-        - places : List<Place>
-        - transitions : List<Transition>
-        + addArc()
-        + addPlace()
-        + addTransition()
-        + changeJetonsInPlace()
-        + changeWeight()
-        + checkState()
-        + createPetri()
-        {static} + getInstance()
-        {static} + main()
-        + start()
-        + upgradePetri()
-        - PetriManager()
-        - upgradeSelectedTran()
+  namespace org.pneditor.petrinet {
+    namespace model.control {
+      class org.pneditor.petrinet.model.control.PetriManager {
+          {static} + LOGGER : Logger
+          - DEFAULT_NEW_NET_PARAMETER : int
+          - arcs : List<Arc>
+          - availableTrans : List<Transition>
+          {static} - instance : PetriManager
+          - places : List<Place>
+          - transitions : List<Transition>
+          + addArc()
+          + addAvailableTransition()
+          + addPlace()
+          + addTransition()
+          + changeJetonsInPlace()
+          + changeWeight()
+          + checkState()
+          + createPetri()
+          + getArcs()
+          {static} + getInstance()
+          + getPlaces()
+          + getTransitions()
+          + hasAvailableTrans()
+          {static} + main()
+          + setArcs()
+          + setPlaces()
+          + setSelectedTrans()
+          + setTransitions()
+          + start()
+          + upgradePetri()
+          - PetriManager()
+          - upgradeSelectedTran()
+      }
     }
   }
   
 
-  filRouge.Control.PetriManager .up.|> filRouge.Interface.IManager
-  filRouge.Control.PetriManager .up.|> filRouge.Interface.IStarter
-  filRouge.Control.PetriManager o-- filRouge.Entities.Transition : selectedTrans
+  org.pneditor.petrinet.model.control.PetriManager .up.|> org.pneditor.petrinet.model.Interface.IManager
+  org.pneditor.petrinet.model.control.PetriManager .up.|> org.pneditor.petrinet.model.Interface.IStarter
+  org.pneditor.petrinet.model.control.PetriManager o-- org.pneditor.petrinet.model.entities.Transition : selectedTrans
 
 
 right footer

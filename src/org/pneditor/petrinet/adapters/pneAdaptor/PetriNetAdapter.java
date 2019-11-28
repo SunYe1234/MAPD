@@ -12,6 +12,7 @@ import org.pneditor.petrinet.model.entities.Place;
 import org.pneditor.petrinet.model.entities.Transition;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /**
@@ -375,6 +376,58 @@ public class PetriNetAdapter implements IManagerAdapt {
     }
 
     /**
+     * Method used to compare all places between both net models. It will find and return missing elements in one of the nets.
+     * @param editorNet
+     * @return List of places that are only in one of the two nets.
+     */
+    private List<Place> comparePlaces(GraphicPetriNet editorNet) {
+        List<Place> editorPlaces = new ArrayList<>();
+        for (GraphicPlace editorPlace : editorNet.getPlaces()) {
+            if (getPlace(editorPlace.getPlace()) == null)
+                createPlace(editorPlace.getPlace());
+            editorPlaces.add(getPlace(editorPlace.getPlace()));
+        }
+        List<Place> differentPlaces = new ArrayList<>(petriManager.getPlaces());
+        differentPlaces.removeAll(editorPlaces);
+        return differentPlaces;
+    }
+
+    /**
+     * Method used to compare all transitions between both net models. It will find and return missing elements in one of the nets.
+     * @param editorNet
+     * @return List of transitions that are missing in one of the nets (could be any of them)
+     */
+    private List<Transition> compareTransitions(GraphicPetriNet editorNet) {
+        List<Transition> editorTransitions = new ArrayList<>();
+        for (AbstractTransition editorTransition : editorNet.getPetriNet().getTransitions()) {
+            if (getTransition(editorTransition) == null)
+                createTransition(editorTransition);
+            editorTransitions.add(getTransition(editorTransition));
+        }
+        List<Transition> differentTransitions = new ArrayList<>(petriManager.getTransitions());
+        differentTransitions.removeAll(editorTransitions);
+        return differentTransitions;
+    }
+
+    /**
+     * Method used to compare all arcs between both net models. It will find the missing elements in one of the nets.
+     * @param editorNet
+     * @return List of arcs that are missing in one of the two nets
+     * @throws ResetArcMultiplicityException
+     */
+    private List<Arc> compareArcs(GraphicPetriNet editorNet) throws ResetArcMultiplicityException {
+        List<Arc> editorArcs = new ArrayList<>();
+        for (GraphicArc editorArc : editorNet.getArcs()) {
+            if (getArc(editorArc.getArc()) == null)
+                createArc(editorArc.getArc());
+            editorArcs.add(getArc(editorArc.getArc()));
+        }
+        List<Arc> differentArcs = new ArrayList<>(petriManager.getArcs());
+        differentArcs.removeAll(editorArcs);
+        return differentArcs;
+    }
+
+    /**
      *  Method to create a place in the petriNet. Its purpose is to map the AbstractPlace
      *  model of the pne-editor project to the place of the petriNet model
      * @param editorPlace
@@ -415,6 +468,4 @@ public class PetriNetAdapter implements IManagerAdapt {
         }
         this.addArc(arc);
     }
-
-
 }

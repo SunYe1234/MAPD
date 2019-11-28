@@ -1,0 +1,217 @@
+@startuml
+
+title __GPETRINET's Class Diagram__\n
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicArc {
+          {static} + NEARTOLERANCE : int
+          - breakPoints : List<Point>
+          + GraphicArc()
+          + GraphicArc()
+          + addDistantBreakPointToBeginning()
+          + addDistantBreakPointToEnd()
+          + addOrGetBreakPoint()
+          + cleanupUnecessaryBreakPoints()
+          + containsPoint()
+          + draw()
+          + draw()
+          + getArc()
+          + getBreakPoints()
+          + getBreakPointsCopy()
+          + getClone()
+          + getDestination()
+          + getEnd()
+          + getSource()
+          + getStart()
+          + isNode()
+          + isPlace()
+          + isTransition()
+          + setArc()
+          + setBreakPoints()
+          + setDestination()
+          + setSource()
+          # computeArrowTipPoint()
+          # drawArrow()
+          # drawArrowDouble()
+          # drawCircle()
+          # drawMultiplicityLabel()
+          # drawSegmentedLine()
+          # getLabelPoint()
+          # getLastBreakPoint()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      abstract class org.pneditor.editor.gpetrinet.GraphicElement {
+          # color : Color
+          # highlightColor : Color
+          - center : Point
+          - end : Point
+          - start : Point
+          + containsPoint()
+          {abstract} + draw()
+          + getCenter()
+          + getColor()
+          + getEnd()
+          + getHeight()
+          + getHighlightColor()
+          + getStart()
+          + getWidth()
+          {abstract} + isNode()
+          {abstract} + isPlace()
+          {abstract} + isTransition()
+          + moveBy()
+          + setCenter()
+          + setCenter()
+          + setColor()
+          + setEnd()
+          + setHighlightColor()
+          + setSize()
+          + setStart()
+          - getCenterX()
+          - getCenterY()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      abstract class org.pneditor.editor.gpetrinet.GraphicNode {
+          + GraphicNode()
+          {abstract} + getLabel()
+          {abstract} + getNode()
+          + isNode()
+          # drawLabel()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicPetriNet {
+          - elements : List<GraphicElement>
+          - model : String
+          - modelAdapterPath : String
+          - modelPath : String
+          - viewTranslation : Point
+          + GraphicPetriNet()
+          + GraphicPetriNet()
+          + addAll()
+          + addElement()
+          + draw()
+          + getArcs()
+          + getBounds()
+          + getConnectedGraphicArcs()
+          + getElementByXY()
+          + getElements()
+          + getLastArcAdded()
+          + getLastElementAdded()
+          + getPetriNet()
+          + getPlaces()
+          + getPreview()
+          + getViewTranslation()
+          + removeAll()
+          + removeElement()
+          + removeElements()
+          + setPetriNet()
+          + setViewTranslation()
+          + setViewTranslationToCenter()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicPlace {
+          + GraphicPlace()
+          + GraphicPlace()
+          + containsPoint()
+          + draw()
+          + getClone()
+          + getLabel()
+          + getNode()
+          + getPlace()
+          + isPlace()
+          + isTransition()
+          + setPlace()
+          # drawPlaceBackground()
+          # drawPlaceBorder()
+          # drawTokens()
+          - drawTokenAsDot()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicTransition {
+          + GraphicTransition()
+          + GraphicTransition()
+          + draw()
+          + draw()
+          + getClone()
+          + getLabel()
+          + getNode()
+          + getTransition()
+          + isPlace()
+          + isTransition()
+          + setTransition()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.PreviewArc {
+          + PreviewArc()
+          + draw()
+          + draw()
+          + getDestination()
+          + getEnd()
+          + getSource()
+          + getStart()
+          + isNode()
+          + isPlace()
+          + isTransition()
+          + setDestination()
+          + setSource()
+          # computeArrowTipPoint()
+          # drawArrow()
+          # drawSegmentedLine()
+      }
+    }
+  }
+  
+
+  org.pneditor.editor.gpetrinet.GraphicArc -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.gpetrinet.GraphicArc o-- org.pneditor.petrinet.AbstractArc : arc
+  org.pneditor.editor.gpetrinet.GraphicArc o-- org.pneditor.editor.gpetrinet.GraphicNode : destination
+  org.pneditor.editor.gpetrinet.GraphicArc o-- org.pneditor.editor.gpetrinet.GraphicNode : source
+  org.pneditor.editor.gpetrinet.GraphicNode -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.gpetrinet.GraphicPetriNet o-- org.pneditor.petrinet.PetriNetInterface : petriNet
+  org.pneditor.editor.gpetrinet.GraphicPlace -up-|> org.pneditor.editor.gpetrinet.GraphicNode
+  org.pneditor.editor.gpetrinet.GraphicPlace o-- org.pneditor.petrinet.AbstractPlace : place
+  org.pneditor.editor.gpetrinet.GraphicTransition -up-|> org.pneditor.editor.gpetrinet.GraphicNode
+  org.pneditor.editor.gpetrinet.GraphicTransition o-- org.pneditor.petrinet.AbstractTransition : transition
+  org.pneditor.editor.gpetrinet.PreviewArc -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.gpetrinet.PreviewArc o-- org.pneditor.editor.gpetrinet.GraphicNode : destination
+  org.pneditor.editor.gpetrinet.PreviewArc o-- org.pneditor.editor.gpetrinet.GraphicNode : source
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

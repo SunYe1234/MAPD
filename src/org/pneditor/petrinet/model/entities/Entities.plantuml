@@ -2,78 +2,99 @@
 
 title __ENTITIES's Class Diagram__\n
 
-  namespace filRouge.Entities {
-    class filRouge.Entities.Arc {
-        {static} - LOGGER : Logger
-        - in : boolean
-        - weight : int
-        + Arc()
-        + Arc()
-        + getConnectedPlace()
-        + getWeight()
-        + isAvailable()
-        + isIn()
-        + setConnectedPlace()
-        + setIn()
-        + setWeight()
-        + toString()
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.Arc {
+          {static} - LOGGER : Logger
+          - in : boolean
+          - weight : int
+          + Arc()
+          + Arc()
+          + getConnectedPlace()
+          + getWeight()
+          + isAvailable()
+          + isIn()
+          + setConnectedPlace()
+          + setIn()
+          + setWeight()
+          + toString()
+      }
     }
   }
   
 
-  namespace filRouge.Entities {
-    class filRouge.Entities.Place {
-        - tokens : int
-        + Place()
-        + Place()
-        + addTokens()
-        + deleteTokens()
-        + getTokens()
-        + setTokens()
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.Place {
+          - id : int
+          - tokens : int
+          + Place()
+          + Place()
+          + addTokens()
+          + deleteTokens()
+          + getId()
+          + getTokens()
+          + setId()
+          + setTokens()
+      }
     }
   }
   
 
-  namespace filRouge.Entities {
-    class filRouge.Entities.Transition {
-        - available : boolean
-        - inArcs : List<Arc>
-        - outArcs : List<Arc>
-        + Transition()
-        + addInArc()
-        + addOutArc()
-        + getInArcs()
-        + getOutArcs()
-        + isAvailable()
-        + setArcWeight()
-        + setAvailable()
-        + setInArcs()
-        + setOutArcs()
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.Transition {
+          - available : boolean
+          - id : int
+          - inArcs : List<Arc>
+          - outArcs : List<Arc>
+          + Transition()
+          + Transition()
+          + addInArc()
+          + addOutArc()
+          + equals()
+          + getId()
+          + getInArcs()
+          + getOutArcs()
+          + hashCode()
+          + isAvailable()
+          + replaceInArc()
+          + replaceoutArc()
+          + setArcWeight()
+          + setAvailable()
+          + setId()
+          + setInArcs()
+          + setOutArcs()
+      }
     }
   }
   
 
-  namespace filRouge.Entities {
-    class filRouge.Entities.ViderArc {
-        + ViderArc()
-        + clearPlace()
-        + isAvailable()
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.ViderArc {
+          + ViderArc()
+          + clearPlace()
+          + isAvailable()
+      }
     }
   }
   
 
-  namespace filRouge.Entities {
-    class filRouge.Entities.ZeroArc {
-        + ZeroArc()
-        + isAvailable()
-        + isPlaceVide()
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.ZeroArc {
+          + ZeroArc()
+          + isAvailable()
+          + isPlaceEmpty()
+      }
     }
   }
   
 
-  filRouge.Entities.Arc o-- filRouge.Entities.Place : connectedPlace
-  filRouge.Entities.ViderArc -up-|> filRouge.Entities.Arc
-  filRouge.Entities.ZeroArc -up-|> filRouge.Entities.Arc
+  org.pneditor.petrinet.model.entities.Arc o-- org.pneditor.petrinet.model.entities.Place : connectedPlace
+  org.pneditor.petrinet.model.entities.ViderArc -up-|> org.pneditor.petrinet.model.entities.Arc
+  org.pneditor.petrinet.model.entities.ZeroArc -up-|> org.pneditor.petrinet.model.entities.Arc
 
 
 right footer

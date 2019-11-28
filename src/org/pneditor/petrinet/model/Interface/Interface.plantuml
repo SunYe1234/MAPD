@@ -2,23 +2,38 @@
 
 title __INTERFACE's Class Diagram__\n
 
-  namespace filRouge.Interface {
-    interface filRouge.Interface.IManager {
-        {abstract} + addArc()
-        {abstract} + addPlace()
-        {abstract} + addTransition()
-        {abstract} + changeJetonsInPlace()
-        {abstract} + changeWeight()
+  namespace org.pneditor.petrinet {
+    namespace model.Interface {
+      interface org.pneditor.petrinet.model.Interface.IManager {
+          {abstract} + addArc()
+          {abstract} + addPlace()
+          {abstract} + addTransition()
+          {abstract} + changeJetonsInPlace()
+          {abstract} + changeWeight()
+      }
     }
   }
   
 
-  namespace filRouge.Interface {
-    interface filRouge.Interface.IStarter {
-        {abstract} + checkState()
-        {abstract} + createPetri()
-        {abstract} + start()
-        {abstract} + upgradePetri()
+  namespace org.pneditor.petrinet {
+    namespace model.Interface {
+      interface org.pneditor.petrinet.model.Interface.IManagerAdapt {
+          {abstract} + addArc()
+          {abstract} + addPlace()
+          {abstract} + addTransition()
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.Interface {
+      interface org.pneditor.petrinet.model.Interface.IStarter {
+          {abstract} + checkState()
+          {abstract} + createPetri()
+          {abstract} + start()
+          {abstract} + upgradePetri()
+      }
     }
   }
   

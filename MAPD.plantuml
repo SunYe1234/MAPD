@@ -1,0 +1,1289 @@
+@startuml
+
+title __MAPD-PNE-CODE's Class Diagram__\n
+
+  namespace logger {
+    class logger.PNEditorLogger {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    class org.pneditor.editor.DrawingBoard {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    class org.pneditor.editor.LocalClipboard {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    class org.pneditor.editor.Main {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    class org.pneditor.editor.MainFrame {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    class org.pneditor.editor.Root {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    class org.pneditor.editor.UndoManager {
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      class org.pneditor.editor.actions.AboutAction {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      class org.pneditor.editor.actions.ChangeModelAction {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace algorithms {
+        class org.pneditor.editor.actions.algorithms.BoundednessAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace draw {
+        class org.pneditor.editor.actions.draw.ArcSelectToolAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace draw {
+        class org.pneditor.editor.actions.draw.PlaceSelectToolAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace draw {
+        class org.pneditor.editor.actions.draw.SelectionSelectToolAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace draw {
+        class org.pneditor.editor.actions.draw.TokenSelectToolAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace draw {
+        class org.pneditor.editor.actions.draw.TransitionSelectToolAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.CopyAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.CutAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.DeleteAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.PasteAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.RedoAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.SelectAllAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace edit {
+        class org.pneditor.editor.actions.edit.UndoAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace element {
+        class org.pneditor.editor.actions.element.SetArcInhibitoryAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace element {
+        class org.pneditor.editor.actions.element.SetArcMultiplicityAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace element {
+        class org.pneditor.editor.actions.element.SetArcRegularAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace element {
+        class org.pneditor.editor.actions.element.SetArcResetAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace element {
+        class org.pneditor.editor.actions.element.SetLabelAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace element {
+        class org.pneditor.editor.actions.element.SetTokensAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.ExportAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.ImportAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.NewFileAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.OpenFileAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.QuitAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.SaveAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace actions {
+      namespace file {
+        class org.pneditor.editor.actions.file.SaveFileAsAction {
+        }
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.ArcFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.Canvas {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.ClickFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.DraggingFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.EdgeZigzagFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      interface org.pneditor.editor.canvas.Feature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.PanningFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.PetriNetFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.PlaceTransitionMakerFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.PopupMenuFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.ScrollingFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.Selection {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      interface org.pneditor.editor.canvas.SelectionChangedListener {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.SelectionDrawingFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.TokenFeature {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.VisualHandle {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace canvas {
+      class org.pneditor.editor.canvas.VisualSelection {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.AddArcCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.AddPlaceCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.AddTokenCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.AddTransitionCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.CutCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.DeleteArcCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.DeleteElementCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.DeleteElementsCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.DeletePlaceCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.DeleteTransitionCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.FireTransitionCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.MoveElementCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.MoveElementsCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.PasteCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.RemoveTokenCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetArcInhibitCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetArcMultiplicityCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetArcRegularCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetArcResetCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetEdgeZigzagPointCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetLabelCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace commands {
+      class org.pneditor.editor.commands.SetTokensCommand {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.EpsFileType {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.FileChooserDialog {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.FileIconView {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      abstract class org.pneditor.editor.filechooser.FileType {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.FileTypeException {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.PflowFileType {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.PngFileType {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.Preview {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.Sidebar {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace filechooser {
+      class org.pneditor.editor.filechooser.ViptoolPnmlFileType {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicArc {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      abstract class org.pneditor.editor.gpetrinet.GraphicElement {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      abstract class org.pneditor.editor.gpetrinet.GraphicNode {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicPetriNet {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicPlace {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.GraphicTransition {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.editor {
+    namespace gpetrinet {
+      class org.pneditor.editor.gpetrinet.PreviewArc {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    abstract class org.pneditor.petrinet.AbstractArc {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    abstract class org.pneditor.petrinet.AbstractNode {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    abstract class org.pneditor.petrinet.AbstractPlace {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    abstract class org.pneditor.petrinet.AbstractTransition {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    class org.pneditor.petrinet.Boundedness {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    abstract class org.pneditor.petrinet.PetriNetInterface {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    class org.pneditor.petrinet.ResetArcMultiplicityException {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    class org.pneditor.petrinet.UnimplementedCaseException {
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace adapters.pneAdaptor {
+      class org.pneditor.petrinet.adapters.pneAdaptor.PetriNetAdapter {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.Interface {
+      interface org.pneditor.petrinet.model.Interface.IManager {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.Interface {
+      interface org.pneditor.petrinet.model.Interface.IManagerAdapt {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.Interface {
+      interface org.pneditor.petrinet.model.Interface.IStarter {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.control {
+      class org.pneditor.petrinet.model.control.PetriManager {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.Arc {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.Place {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.Transition {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.ViderArc {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.entities {
+      class org.pneditor.petrinet.model.entities.ZeroArc {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.exceptions {
+      class org.pneditor.petrinet.model.exceptions.ExceptionDeleteTokens {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.petrinet {
+    namespace model.exceptions {
+      class org.pneditor.petrinet.model.exceptions.ExceptionIllegalTransNum {
+      }
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.DocumentExporter {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.DocumentImporter {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlArc {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlDocument {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlNode {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlPetriNet {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlPlace {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlPoint {
+    }
+  }
+  
+
+  namespace org.pneditor.save.xml {
+    class org.pneditor.save.xml.XmlTransition {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    class org.pneditor.util.CachedGraphics2D {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    class org.pneditor.util.Colors {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    interface org.pneditor.util.Command {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    class org.pneditor.util.EPSGraphics2D {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    class org.pneditor.util.GraphicsTools {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    class org.pneditor.util.Point {
+    }
+  }
+  
+
+  namespace org.pneditor.util {
+    class org.pneditor.util.StringTools {
+    }
+  }
+  
+
+  namespace org.pneditor.workflow {
+    class org.pneditor.workflow.WorkflowLogger {
+    }
+  }
+  
+
+  namespace tests.org.pneditor.petrinet {
+    class tests.org.pneditor.petrinet.ArcTest {
+    }
+  }
+  
+
+  namespace tests.org.pneditor.petrinet {
+    class tests.org.pneditor.petrinet.NodeTest {
+    }
+  }
+  
+
+  namespace tests.org.pneditor.petrinet {
+    class tests.org.pneditor.petrinet.PlaceTest {
+    }
+  }
+  
+
+  namespace tests.org.pneditor.petrinet {
+    class tests.org.pneditor.petrinet.TransitionTest {
+    }
+  }
+  
+
+  org.pneditor.editor.DrawingBoard -up-|> javax.swing.JPanel
+  org.pneditor.editor.LocalClipboard o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.MainFrame -up-|> javax.swing.JFrame
+  org.pneditor.editor.Root .up.|> java.awt.event.WindowListener
+  org.pneditor.editor.Root .up.|> javax.swing.event.ListSelectionListener
+  org.pneditor.editor.Root .up.|> org.pneditor.editor.canvas.SelectionChangedListener
+  org.pneditor.editor.Root o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.Root o-- org.pneditor.editor.gpetrinet.GraphicElement : clickedElement
+  org.pneditor.editor.Root o-- org.pneditor.editor.LocalClipboard : clipboard
+  org.pneditor.editor.Root o-- org.pneditor.editor.DrawingBoard : drawingBoard
+  org.pneditor.editor.Root o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : graphicPetriNet
+  org.pneditor.editor.Root o-- org.pneditor.editor.MainFrame : mainFrame
+  org.pneditor.editor.Root o-- org.pneditor.editor.actions.edit.RedoAction : redo
+  org.pneditor.editor.Root o-- org.pneditor.editor.canvas.Selection : selection
+  org.pneditor.editor.Root o-- org.pneditor.editor.actions.edit.UndoAction : undo
+  org.pneditor.editor.Root o-- org.pneditor.editor.UndoManager : undoManager
+  org.pneditor.editor.UndoManager o-- org.pneditor.editor.actions.edit.RedoAction : redoAction
+  org.pneditor.editor.UndoManager o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.UndoManager o-- org.pneditor.editor.actions.edit.UndoAction : undoAction
+  org.pneditor.editor.actions.AboutAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.AboutAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.ChangeModelAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.ChangeModelAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.algorithms.BoundednessAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.algorithms.BoundednessAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.draw.ArcSelectToolAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.draw.ArcSelectToolAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.draw.PlaceSelectToolAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.draw.PlaceSelectToolAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.draw.SelectionSelectToolAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.draw.SelectionSelectToolAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.draw.TokenSelectToolAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.draw.TokenSelectToolAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.draw.TransitionSelectToolAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.draw.TransitionSelectToolAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.CopyAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.CopyAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.CutAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.CutAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.DeleteAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.DeleteAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.PasteAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.PasteAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.RedoAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.RedoAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.SelectAllAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.SelectAllAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.edit.UndoAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.edit.UndoAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.element.SetArcInhibitoryAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.element.SetArcInhibitoryAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.element.SetArcMultiplicityAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.element.SetArcMultiplicityAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.element.SetArcRegularAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.element.SetArcRegularAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.element.SetArcResetAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.element.SetArcResetAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.element.SetLabelAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.element.SetLabelAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.element.SetTokensAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.element.SetTokensAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.ExportAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.ExportAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.ImportAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.ImportAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.NewFileAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.NewFileAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.OpenFileAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.OpenFileAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.QuitAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.QuitAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.SaveAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.SaveAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.actions.file.SaveFileAsAction -up-|> javax.swing.AbstractAction
+  org.pneditor.editor.actions.file.SaveFileAsAction o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.ArcFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.ArcFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.ArcFeature o-- org.pneditor.editor.gpetrinet.PreviewArc : connectingArc
+  org.pneditor.editor.canvas.ArcFeature o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : graphicPetriNet
+  org.pneditor.editor.canvas.ArcFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.ArcFeature o-- org.pneditor.editor.gpetrinet.GraphicNode : sourceElement
+  org.pneditor.editor.canvas.Canvas .up.|> java.awt.event.MouseListener
+  org.pneditor.editor.canvas.Canvas .up.|> java.awt.event.MouseMotionListener
+  org.pneditor.editor.canvas.Canvas .up.|> java.awt.event.MouseWheelListener
+  org.pneditor.editor.canvas.Canvas -up-|> javax.swing.JPanel
+  org.pneditor.editor.canvas.Canvas o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.Canvas o-- org.pneditor.editor.canvas.ScrollingFeature : scrollingFeature
+  org.pneditor.editor.canvas.ClickFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.ClickFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.DraggingFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.DraggingFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.DraggingFeature o-- org.pneditor.editor.gpetrinet.GraphicElement : draggedElement
+  org.pneditor.editor.canvas.DraggingFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.EdgeZigzagFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.EdgeZigzagFeature o-- org.pneditor.editor.gpetrinet.GraphicArc : arc
+  org.pneditor.editor.canvas.EdgeZigzagFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.EdgeZigzagFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.EdgeZigzagFeature o-- org.pneditor.editor.canvas.VisualHandle : visualHandle
+  org.pneditor.editor.canvas.PanningFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.PanningFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.PanningFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.PetriNetFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.PetriNetFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.PlaceTransitionMakerFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.PlaceTransitionMakerFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.PopupMenuFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.PopupMenuFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.PopupMenuFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.ScrollingFeature .up.|> java.awt.event.AdjustmentListener
+  org.pneditor.editor.canvas.ScrollingFeature .up.|> java.awt.event.MouseListener
+  org.pneditor.editor.canvas.ScrollingFeature .up.|> java.awt.event.MouseMotionListener
+  org.pneditor.editor.canvas.ScrollingFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.ScrollingFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.ScrollingFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.Selection .up.|> java.lang.Iterable
+  org.pneditor.editor.canvas.Selection o-- org.pneditor.editor.canvas.SelectionChangedListener : selectionChangedListener
+  org.pneditor.editor.canvas.SelectionDrawingFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.SelectionDrawingFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.SelectionDrawingFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.SelectionDrawingFeature o-- org.pneditor.editor.canvas.VisualSelection : visualSelection
+  org.pneditor.editor.canvas.TokenFeature .up.|> org.pneditor.editor.canvas.Feature
+  org.pneditor.editor.canvas.TokenFeature o-- org.pneditor.editor.canvas.Canvas : canvas
+  org.pneditor.editor.canvas.TokenFeature o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.canvas.VisualHandle -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.canvas.VisualSelection -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.commands.AddArcCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.AddArcCommand o-- org.pneditor.petrinet.AbstractArc : createdArc
+  org.pneditor.editor.commands.AddArcCommand o-- org.pneditor.editor.gpetrinet.GraphicNode : destination
+  org.pneditor.editor.commands.AddArcCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.AddArcCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : representation
+  org.pneditor.editor.commands.AddArcCommand o-- org.pneditor.editor.gpetrinet.GraphicNode : source
+  org.pneditor.editor.commands.AddPlaceCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.AddPlaceCommand o-- org.pneditor.petrinet.AbstractPlace : createdPlace
+  org.pneditor.editor.commands.AddPlaceCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.AddPlaceCommand o-- org.pneditor.editor.gpetrinet.GraphicPlace : representation
+  org.pneditor.editor.commands.AddTokenCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.AddTokenCommand o-- org.pneditor.editor.gpetrinet.GraphicPlace : gPlace
+  org.pneditor.editor.commands.AddTokenCommand o-- org.pneditor.petrinet.AbstractPlace : place
+  org.pneditor.editor.commands.AddTransitionCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.AddTransitionCommand o-- org.pneditor.petrinet.AbstractTransition : createdTransition
+  org.pneditor.editor.commands.AddTransitionCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.AddTransitionCommand o-- org.pneditor.editor.gpetrinet.GraphicTransition : representation
+  org.pneditor.editor.commands.CutCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.CutCommand o-- org.pneditor.util.Command : deleteElements
+  org.pneditor.editor.commands.DeleteArcCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.DeleteArcCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : gArc
+  org.pneditor.editor.commands.DeleteArcCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.DeleteElementCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.DeleteElementCommand o-- org.pneditor.util.Command : deleteElement
+  org.pneditor.editor.commands.DeleteElementsCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.DeletePlaceCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.DeletePlaceCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.DeletePlaceCommand o-- org.pneditor.editor.gpetrinet.GraphicPlace : gPlace
+  org.pneditor.editor.commands.DeleteTransitionCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.DeleteTransitionCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.DeleteTransitionCommand o-- org.pneditor.editor.gpetrinet.GraphicTransition : gTransition
+  org.pneditor.editor.commands.FireTransitionCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.FireTransitionCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.FireTransitionCommand o-- org.pneditor.editor.gpetrinet.GraphicTransition : transition
+  org.pneditor.editor.commands.MoveElementCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.MoveElementCommand o-- org.pneditor.editor.gpetrinet.GraphicElement : element
+  org.pneditor.editor.commands.MoveElementsCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.PasteCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.PasteCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.PasteCommand o-- org.pneditor.editor.Root : root
+  org.pneditor.editor.commands.RemoveTokenCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.RemoveTokenCommand o-- org.pneditor.editor.gpetrinet.GraphicPlace : gPlace
+  org.pneditor.editor.commands.SetArcInhibitCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetArcInhibitCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : gArc
+  org.pneditor.editor.commands.SetArcInhibitCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.SetArcInhibitCommand o-- org.pneditor.petrinet.AbstractArc : newArc
+  org.pneditor.editor.commands.SetArcInhibitCommand o-- org.pneditor.petrinet.AbstractArc : oldArc
+  org.pneditor.editor.commands.SetArcInhibitCommand o-- org.pneditor.petrinet.PetriNetInterface : petriNet
+  org.pneditor.editor.commands.SetArcMultiplicityCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetArcMultiplicityCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : gArc
+  org.pneditor.editor.commands.SetArcRegularCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetArcRegularCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : gArc
+  org.pneditor.editor.commands.SetArcRegularCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.SetArcRegularCommand o-- org.pneditor.petrinet.AbstractArc : newArc
+  org.pneditor.editor.commands.SetArcRegularCommand o-- org.pneditor.petrinet.AbstractArc : oldArc
+  org.pneditor.editor.commands.SetArcRegularCommand o-- org.pneditor.petrinet.PetriNetInterface : petriNet
+  org.pneditor.editor.commands.SetArcResetCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetArcResetCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : gArc
+  org.pneditor.editor.commands.SetArcResetCommand o-- org.pneditor.editor.gpetrinet.GraphicPetriNet : gPetriNet
+  org.pneditor.editor.commands.SetArcResetCommand o-- org.pneditor.petrinet.AbstractArc : newArc
+  org.pneditor.editor.commands.SetArcResetCommand o-- org.pneditor.petrinet.AbstractArc : oldArc
+  org.pneditor.editor.commands.SetArcResetCommand o-- org.pneditor.petrinet.PetriNetInterface : petriNet
+  org.pneditor.editor.commands.SetEdgeZigzagPointCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetEdgeZigzagPointCommand o-- org.pneditor.editor.gpetrinet.GraphicArc : gArc
+  org.pneditor.editor.commands.SetLabelCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetLabelCommand o-- org.pneditor.editor.gpetrinet.GraphicNode : gNode
+  org.pneditor.editor.commands.SetLabelCommand o-- org.pneditor.petrinet.AbstractNode : node
+  org.pneditor.editor.commands.SetTokensCommand .up.|> org.pneditor.util.Command
+  org.pneditor.editor.commands.SetTokensCommand o-- org.pneditor.editor.gpetrinet.GraphicPlace : gPlace
+  org.pneditor.editor.filechooser.EpsFileType -up-|> org.pneditor.editor.filechooser.FileType
+  org.pneditor.editor.filechooser.FileChooserDialog -up-|> javax.swing.JFileChooser
+  org.pneditor.editor.filechooser.FileChooserDialog o-- org.pneditor.editor.filechooser.Sidebar : sidebar
+  org.pneditor.editor.filechooser.FileIconView -up-|> javax.swing.filechooser.FileView
+  org.pneditor.editor.filechooser.FileType -up-|> javax.swing.filechooser.FileFilter
+  org.pneditor.editor.filechooser.PflowFileType -up-|> org.pneditor.editor.filechooser.FileType
+  org.pneditor.editor.filechooser.PngFileType -up-|> org.pneditor.editor.filechooser.FileType
+  org.pneditor.editor.filechooser.Preview .up.|> java.beans.PropertyChangeListener
+  org.pneditor.editor.filechooser.Preview -up-|> javax.swing.JPanel
+  org.pneditor.editor.filechooser.Sidebar .up.|> java.awt.event.ActionListener
+  org.pneditor.editor.filechooser.Sidebar .up.|> java.beans.PropertyChangeListener
+  org.pneditor.editor.filechooser.Sidebar -up-|> javax.swing.JPanel
+  org.pneditor.editor.filechooser.ViptoolPnmlFileType -up-|> org.pneditor.editor.filechooser.FileType
+  org.pneditor.editor.gpetrinet.GraphicArc -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.gpetrinet.GraphicArc o-- org.pneditor.petrinet.AbstractArc : arc
+  org.pneditor.editor.gpetrinet.GraphicArc o-- org.pneditor.editor.gpetrinet.GraphicNode : destination
+  org.pneditor.editor.gpetrinet.GraphicArc o-- org.pneditor.editor.gpetrinet.GraphicNode : source
+  org.pneditor.editor.gpetrinet.GraphicNode -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.gpetrinet.GraphicPetriNet o-- org.pneditor.petrinet.PetriNetInterface : petriNet
+  org.pneditor.editor.gpetrinet.GraphicPlace -up-|> org.pneditor.editor.gpetrinet.GraphicNode
+  org.pneditor.editor.gpetrinet.GraphicPlace o-- org.pneditor.petrinet.AbstractPlace : place
+  org.pneditor.editor.gpetrinet.GraphicTransition -up-|> org.pneditor.editor.gpetrinet.GraphicNode
+  org.pneditor.editor.gpetrinet.GraphicTransition o-- org.pneditor.petrinet.AbstractTransition : transition
+  org.pneditor.editor.gpetrinet.PreviewArc -up-|> org.pneditor.editor.gpetrinet.GraphicElement
+  org.pneditor.editor.gpetrinet.PreviewArc o-- org.pneditor.editor.gpetrinet.GraphicNode : destination
+  org.pneditor.editor.gpetrinet.PreviewArc o-- org.pneditor.editor.gpetrinet.GraphicNode : source
+  org.pneditor.petrinet.AbstractPlace -up-|> org.pneditor.petrinet.AbstractNode
+  org.pneditor.petrinet.AbstractTransition -up-|> org.pneditor.petrinet.AbstractNode
+  org.pneditor.petrinet.Boundedness o-- org.pneditor.petrinet.PetriNetInterface : petriNet
+  org.pneditor.petrinet.adapters.pneAdaptor.PetriNetAdapter .up.|> org.pneditor.petrinet.model.Interface.IManagerAdapt
+  org.pneditor.petrinet.adapters.pneAdaptor.PetriNetAdapter o-- org.pneditor.petrinet.model.control.PetriManager : petriManager
+  org.pneditor.petrinet.model.control.PetriManager .up.|> org.pneditor.petrinet.model.Interface.IManager
+  org.pneditor.petrinet.model.control.PetriManager .up.|> org.pneditor.petrinet.model.Interface.IStarter
+  org.pneditor.petrinet.model.control.PetriManager o-- org.pneditor.petrinet.model.entities.Transition : selectedTrans
+  org.pneditor.petrinet.model.entities.Arc o-- org.pneditor.petrinet.model.entities.Place : connectedPlace
+  org.pneditor.petrinet.model.entities.ViderArc -up-|> org.pneditor.petrinet.model.entities.Arc
+  org.pneditor.petrinet.model.entities.ZeroArc -up-|> org.pneditor.petrinet.model.entities.Arc
+  org.pneditor.save.xml.DocumentExporter o-- org.pneditor.save.xml.XmlDocument : xmlDocument
+  org.pneditor.save.xml.DocumentImporter o-- org.pneditor.save.xml.XmlDocument : xmlDocument
+  org.pneditor.save.xml.XmlDocument o-- org.pneditor.save.xml.XmlPetriNet : petriNet
+  org.pneditor.save.xml.XmlPlace -up-|> org.pneditor.save.xml.XmlNode
+  org.pneditor.save.xml.XmlTransition -up-|> org.pneditor.save.xml.XmlNode
+  org.pneditor.util.CachedGraphics2D -up-|> java.awt.Graphics2D
+  org.pneditor.util.EPSGraphics2D -up-|> java.awt.Graphics2D
+  org.pneditor.util.EPSGraphics2D o-- org.pneditor.util.CachedGraphics2D : cachedGraphics
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
